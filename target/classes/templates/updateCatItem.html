@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+
+<head>
+    <title>Update Cat Item Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" th:href="@{css/style.css}" href="../static/css/style.css" />
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="starter-template">
+
+            <div class="col-sm-12">
+                <form method="POST" th:action="@{/addCatItem}">
+                    <input hidden="hidden" name="id" th:value="${catItem.id}">
+                    <div class="form-group">
+                        <label class="control-label" for="name">Name </label>
+                        <input id="name" class="form-control" th:value="${catItem.name}" name="name" maxlength="100" minlength="1"
+                               required autofocus="autofocus"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="name">Price </label>
+                        <input  type="number" step=0.01 id="price" class="form-control" name="price" max="1000" min="1" th:value="${catItem.price}"
+                               required autofocus="autofocus"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="name">Quantity </label>
+                        <input type="number" id="quantity" class="form-control" name="quantity" max="1000" min="1"  th:value="${catItem.quantity}"
+                               required autofocus="autofocus"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">Update Item</button>
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

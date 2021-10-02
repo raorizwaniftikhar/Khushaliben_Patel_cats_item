@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+
+<head>
+    <title>Add Cat Item</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="starter-template">
+        <div class="col-sm-12">
+            <form th:action="@{/searchItems}" method="POST" sec:authorize="isAuthenticated()">
+                <div class="form-group">
+                    <label class="control-label" for="maxPrice">Max Price </label>
+                    <input type="number" step=0.01 id="maxPrice" class="form-control" name="maxPrice" max="1000" min="1"
+                           required autofocus="autofocus"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="minPrice" ></label>
+                    <input type="number" id="minPrice" class="form-control" name="minPrice" max="1000" min="1"
+                           required autofocus="autofocus"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
